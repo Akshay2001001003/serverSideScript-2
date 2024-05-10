@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+from frappe import __version__ as fv
 app_name = "customapp2"
 app_title = "Customapp2"
 app_publisher = "me"
@@ -123,11 +125,15 @@ doctype_list_js = {"Customer" : "public/js/customer.js"}
 # Hook on document methods and events
 
 # doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
+# 	# "*": {
+# 	# 	"on_update": "method",
+# 	# 	"on_cancel": "method",
+# 	# 	"on_trash": "method"
+# 	# }
+#  "prac":{
+#      "on_validate":"customapp2.customapp2.doctype.prac.prac.autoname",
+#     #  "on_validate":"customapp2.customapp2.doctype.prac.prac.autofill"
+#  }
 # }
 
 # Scheduled Tasks
@@ -227,3 +233,27 @@ doctype_list_js = {"Customer" : "public/js/customer.js"}
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+# def get_rest_api():
+#     return {
+#         "getuser": "/api/method/customapp2.customapp2.prac.prac.getuser",
+#     }
+# my_custom_app/my_custom_app/hooks.py
+
+
+
+# Add script report
+def get_data():
+    return [
+        {
+            "label": ("Reports"),
+            "icon": "fa fa-star",
+            "items": [
+                {
+                    "type": "report",
+                    "name": "Sales Order Report",
+                    "doctype": "Sales Order",
+                    "is_query_report": True
+                }
+            ]
+        }
+    ]
