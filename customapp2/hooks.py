@@ -242,18 +242,6 @@ doctype_list_js = {"Customer" : "public/js/customer.js"}
 
 
 # Add script report
-def get_data():
-    return [
-        {
-            "label": ("Reports"),
-            "icon": "fa fa-star",
-            "items": [
-                {
-                    "type": "report",
-                    "name": "Sales Order Report",
-                    "doctype": "Sales Order",
-                    "is_query_report": True
-                }
-            ]
-        }
-    ]
+override_doctype_class = {
+	"Item Price": "customapp2.classOverride.itemPrice.ItemPrice"
+}
